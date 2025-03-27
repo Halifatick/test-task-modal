@@ -1,0 +1,107 @@
+@use "variables";
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 615px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 90px 56px 40px 56px;
+
+  & h1 {
+    font-size: 26px;
+    line-height: 1.1;
+    color: variables.$dark-gray;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.close-button {
+  width: 40px;
+  height: 40px;
+  border: 4px solid variables.$main-gray;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+
+  position: absolute;
+  top: 25px;
+  right: 35px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 4px;
+    background-color: variables.$main-gray;
+    border-radius: 2px;
+    transition: background-color 0.2s ease;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    border-color: variables.$dark-gray;
+    &::before,
+    &::after {
+      background-color: variables.$dark-gray;
+    }
+  }
+
+  &:active {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+}
+
+.modal-body {
+  padding: 0 6px;
+}
+
+.modal-footer {
+  margin: 40px 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}

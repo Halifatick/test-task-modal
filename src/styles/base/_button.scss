@@ -1,0 +1,19 @@
+@use "variables";
+
+.submit-button {
+  background: none;
+  border: 2px solid variables.$purple;
+  padding: 22px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+
+  &:hover {
+    background: variables.$purple;
+    color: white;
+  }
+}
